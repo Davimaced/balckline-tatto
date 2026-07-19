@@ -1,0 +1,446 @@
+/*root: local onde vc cria as variaveis */
+:root{
+    --brand:  #FFCC00;
+    --brand-light: #FFE990;
+    --brand-dark: #CAA100;
+    --text:#DDDD;
+    --preto:black;
+    --dark:#14141B;
+
+    --white:#ffff;
+    
+    --font-primary: "Inter", sans-serif;
+    --font-accent: "Teko", sans-serif;
+
+    --swiper-theme-color:var(--brand);
+
+    
+    --space-xs:12px;    
+    --space-sm:24px;    
+    --space-md:48px;    
+    --space-lg:128px;    
+
+
+}
+
+/**************************Reset*/
+*{
+    margin:0;
+    padding: 0;
+}
+
+html{
+    /*transforma a navegação em âncora suave*/
+    scroll-behavior: smooth;
+}
+body{
+/*implementar o var() e a variavel para puxar o root*/
+background-color: var(--dark);
+font-family: var(--font-primary);
+
+}
+h1,h2,h3,h4,h5,h6{
+ font-family: var(--font-accent);
+  text-transform: uppercase;
+    color: var(--white);
+    line-height: 90%;
+
+
+}
+
+h2{
+    font-size: var(--space-md);
+}
+img{
+    display: block;
+}
+
+/****************************Navegaçao**********/
+#quem-somos,#artistas, #fale-conosco{
+    scroll-margin-top: 100px; /*reposicionamento da navegação */
+}
+
+p{
+    color:var(--text);
+    font-size: 16px;
+    line-height: 130%;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+/**************************UTILS - se repete com frequência*************/
+.text-brand{
+    color: var(--brand);
+}
+.btn{
+    color: var(--dark);
+    /*background-color: var(--brand);*/
+    background-image:linear-gradient(to right,var(--brand,var(--brand-dark)));
+    display: inline-block;
+    padding: var(--space-xs)  var(--space-md);
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: var(--space-sm);
+    transition: 0.5s;
+
+
+}
+.btn:hover{
+   /* border-radius: 25px;*/
+    /*transform: rotate(-10deg);*/
+    /*transform: translateY(-5px);*/
+    transform: scale(0.95);
+}
+.container{
+width: 100%;
+max-width: 1116px;
+
+/*centraliza a div horizontalmente independente do elemento pai*/
+margin-left: auto;
+margin-right: auto;
+
+}
+/*****************SWITER**********/
+.swiper-button-next, .swiper-button-prev{
+    color: var(--brand);
+}
+
+.swiper-artistas{
+    padding-bottom: 30px;
+}
+
+/********************************************HEADER*****************/
+.header{
+    background-color:  rgba(0, 0, 0, 0.30);
+    backdrop-filter: blur(10px); /*aplica um borrado na imagem */
+
+    border-top: 3px solid var(--brand);
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    
+    width: 100%;
+    position:fixed;
+    top: 0;
+    z-index: 1000;
+}
+/* container que esta  dentro de header*/
+.header .container{
+    display: flex;
+    align-items: center; /*alinhamento vertical*/
+    justify-content: space-between;/*alinhamento horizontal justfy content / space between espaço qu estiver sobrannado fique entre os filhos*/
+
+}
+.header .menu{
+
+    display: flex;
+    column-gap: 100px; /*espaço entre colunas*/
+
+}
+.header .menu a {
+    color: var(--white);
+    font-family: var(--font-accent);
+    font-size: 18px;
+     text-transform: uppercase; /* transforma o tetxto td em maiúsculo*/
+    text-decoration: none;
+
+    
+}
+.header .menu a:hover{/*ao passar o mouse no links do menu */
+    color: var(--brand);
+
+}
+
+/*************hero**********************/
+
+.hero{
+    height: 100vh; /*VH se adequa a altura do navegador*/
+    background-image:url(../img/bg_hero.webp);
+    background-size: cover; /*cobre a imagem e diminui se for preciso*/
+    background-position: top right;
+   
+    display: flex;
+    align-items: center;
+}
+.hero .container{
+    margin-top: 100px;
+}
+.hero h1{
+    color:var(--white);
+    font-size: 112px;
+    line-height: 90%;/*altura da linha , quer dizer *112px*/
+    margin: var(--space-xs) 0;
+    /*margin-top: 12px;
+    /*margin-bottom: 12px;*/
+
+}
+.hero p{
+    font-size: 20px;
+  max-width: 832px;
+  margin:0;
+
+}
+/****************QUEM SOMOS*************/
+.quem-somos{
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    
+   
+}
+.quem-somos .container{
+    display: flex;
+    align-items: center;
+    column-gap: var(--space-sm);
+
+}
+/*****************MISSAO********/
+.missao{   
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    background-image: url(../img/bg_missao.webp);
+    background-position: center;
+    background-size: cover;    
+    text-align: center;    
+    
+}
+/******************ARTISTAS************/
+.artistas{
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+}
+.artistas p{
+    max-width: 546px;
+}
+.container-artistas{
+    display: flex;
+    column-gap: var(--space-sm);
+
+}
+.container-artistas figure{
+    position: relative;/* serve de referencia para o position absolute interno*/
+    transition: 0.5s;
+    filter: grayscale(100%); 
+}
+.container-artistas figure:hover{
+    filter: grayscale(0);
+
+}
+
+.container-artistas figcaption{
+    background-color: var(--brand);
+    color:var(--dark);
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+
+
+    /* posição em relação ao elemento pai (desde que ele tambem tenha position),
+     caso contrario será o elemento superior ou o body*/ 
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+
+    /*sombra horizontal, vertical e suavidade de cor */
+    box-shadow: 1px 1px 3px var(--dark);
+}
+/************************AGENDE*********************/
+.agende{
+    background-image: url(../img/bg_agende.webp);
+    background-position: center;
+    background-size: cover;
+    padding-bottom: var(--space-lg);
+    padding-top: var(--space-lg);
+}
+.agende p{
+    margin: 0;
+    max-width: 736px;
+}
+
+/************************DEPOIMENTOS *********************/
+
+.depoimentos{
+    padding-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    text-align: center;
+}
+.depoimentos p{
+    font-size: 20px;
+    font-style: italic;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.depoimentos span{
+    font-size: 14px;
+    color: var(--brand);
+}
+/************************FALE CONOSCO *********************/
+
+.fale-conosco {
+    padding-bottom: var(--space-lg);
+    padding-top: var(--space-lg);
+    background-color: var(--preto);
+
+}
+.fale-conosco .container{
+    display: flex;
+    align-items: center;
+    column-gap: var(--space-sm);
+}
+.fale-conosco ul{
+    color: var(--text);
+    list-style-type: circle;
+    list-style-position: inside;
+}
+/************************FOOTER *********************/
+.footer{
+    padding-top: var(--space-md);
+    padding-bottom:var(--space-md) ;
+
+}
+.footer .container{
+    display: flex;
+    justify-content: space-between;
+}
+.footer h3{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+ .footer p{
+    margin: 0;
+    font-size: 14px;
+ }   
+ .redes{
+     display: flex;
+     align-items: center;
+    column-gap: 12px;
+    justify-content: flex-end;
+ }
+/*condicional para alterar o layout */
+@media (max-width: 1140px){
+
+    :root{
+        --space-lg: 64px;
+    }
+
+    h2{
+        font-size: 32px;
+
+    }
+    .container{
+        padding-right: var(--space-xs);
+        padding-left: var(--space-xs);
+        box-sizing: border-box; /* faz com que o padding/border nao aumentem o tamanho*/
+    }
+    .header .menu{
+        /*display: none;/*começa escondido */
+        transform: translateX(-100%);
+        transition: 0.5s;
+       position: absolute;
+       background-color: var(--preto);
+       left: 0;
+       top: 100px;
+       flex-direction: column;
+       width: 100%;
+       height: 100vh;
+
+    }
+    .header .menu-show{
+       /* display: flex;*/
+       transform: translateX(0);
+
+    }
+    .header .menu a{
+        border-bottom: 3px solid var(--brand-light);
+        padding: 36px 12px;
+    }
+    
+    
+    .bar{
+        width:40px;
+        height: 3px;
+         background-color: var(--white);
+         margin-bottom: 3px;
+         transition: 0.5 s;
+    }
+
+    /*primeiro filho */
+    .x .bar:first-child{
+        transform:rotate(45deg) translate(3px, 3px);
+    }
+
+    /* filho numero 2 */
+    .x .bar:nth-child(2){
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    /*ultimo filho */
+    .x .bar:last-child{
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .hero{
+        height: 600px;
+    }
+    .hero h1{
+        font-size: 40px;
+    }
+    .hero p{
+        font-size: 18px;
+    }
+    .quem-somos img{
+        width: 400px;
+        height: auto;
+    }
+    .missao{
+        background-position: center;
+    }
+    .fale-conosco iframe{
+        width: 400px;
+
+    }
+}
+@media(max-width: 767px){
+
+
+}
+
+.quem-somos .container{
+    flex-direction: column;
+    row-gap: var(--space-sm);
+}
+.quem-somos img{
+    max-width: 100%; /*faz com a imagem tenha no maximo o tamanho original dela */
+    width: auto;
+}
+.artistas{
+    text-align: center;
+}
+.artistas .swiper-slide{
+    display: flex;
+    justify-content: center;
+}
+.depoimentos p{
+    padding-left: 60px;
+    padding-right: 60px;
+    font-size: 18px; 
+    
+}
+.fale-conosco .container{
+    flex-direction: column;
+    row-gap: var(--space-sm);
+    
+}
+.mapa,  .fale-conosco iframe{
+    width: 100%; 
+}
+.footer .container{
+    flex-direction: column;
+    row-gap: var(--space-sm);
+    
+}
+.redes {
+    justify-content: flex-start;
+}
+
+
+
+
+
